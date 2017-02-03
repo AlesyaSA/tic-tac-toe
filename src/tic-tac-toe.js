@@ -29,6 +29,9 @@ this.turn++;
 
     isFinished() {//should return true if game is finished
       // (e.g. there is a winner or it is a draw)
+if((this.getWinner()==null)&&(this.isDraw()==false))
+{return false;}
+else {return true;}
 
     }
 
