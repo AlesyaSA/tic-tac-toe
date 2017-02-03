@@ -34,7 +34,30 @@ this.turn++;
 
     getWinner() {//should return winner symbol (`x` or `o`)
       // or null if there is no winner yet
+if(
+((this.matrix[0][0]=='x') && (this.matrix[1][1]=='x')&&(this.matrix[2][2]=='x'))
+||((this.matrix[0][0]=='x') && (this.matrix[0][1]=='x')&&(this.matrix[0][2]=='x'))
+||((this.matrix[1][0]=='x') && (this.matrix[1][1]=='x')&&(this.matrix[1][2]=='x'))
+||((this.matrix[2][0]=='x') && (this.matrix[2][1]=='x')&&(this.matrix[2][2]=='x'))
+||((this.matrix[0][0]=='x') && (this.matrix[1][0]=='x')&&(this.matrix[2][0]=='x'))
+||((this.matrix[0][1]=='x') && (this.matrix[1][1]=='x')&&(this.matrix[2][1]=='x'))
+||((this.matrix[0][2]=='x') && (this.matrix[1][2]=='x')&&(this.matrix[2][2]=='x'))
+||((this.matrix[2][0]=='x') && (this.matrix[1][1]=='x')&&(this.matrix[0][2]=='x'))
 
+){return 'x';}
+else if(
+  ((this.matrix[0][0]=='o') && (this.matrix[1][1]=='o')&&(this.matrix[2][2]=='o'))
+  ||((this.matrix[0][0]=='o') && (this.matrix[0][1]=='o')&&(this.matrix[0][2]=='o'))
+  ||((this.matrix[1][0]=='o') && (this.matrix[1][1]=='o')&&(this.matrix[1][2]=='o'))
+  ||((this.matrix[2][0]=='o') && (this.matrix[2][1]=='o')&&(this.matrix[2][2]=='o'))
+  ||((this.matrix[0][0]=='o') && (this.matrix[1][0]=='o')&&(this.matrix[2][0]=='o'))
+  ||((this.matrix[0][1]=='o') && (this.matrix[1][1]=='o')&&(this.matrix[2][1]=='o'))
+  ||((this.matrix[0][2]=='o') && (this.matrix[1][2]=='o')&&(this.matrix[2][2]=='o'))
+  ||((this.matrix[2][0]=='o') && (this.matrix[1][1]=='o')&&(this.matrix[0][2]=='o'))
+
+
+){return 'o'}
+else {return null;}
     }
 
     noMoreTurns() {//should return true if there is no more
@@ -51,7 +74,10 @@ else {return false;}
 
     isDraw() {//should return true if there is no more turns
       //and no winner
-
+var nMT=this.noMoreTurns();
+var gW=this.getWinner();
+if((nMT==true)&&(gW==null)){return true;}
+else {return false;}
     }
 
     getFieldValue(rowIndex, colIndex) {//should return
